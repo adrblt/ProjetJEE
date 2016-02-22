@@ -24,6 +24,7 @@
                 <br />
 
                 <input type="submit" value="Connexion" class="sansLabel" />
+                <input type="submit" value="Inscription" name="inscription" class="sansLabel" />
                 <br />
                 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>

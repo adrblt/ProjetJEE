@@ -9,8 +9,8 @@ import entities.Utilisateur;
 import static dao.DAOUtilitaires.*;
 
 public class UtilisateurDaoImpl{
-	private static final String SQL_SELECT_PAR_EMAIL = "SELECT id, email, nom, mot_de_passe, date_inscription FROM bdd_jee.Utilisateur WHERE email = ?";
-	private static final String SQL_INSERT = "INSERT INTO bdd_jee.Utilisateur (email, mot_de_passe, nom, date_inscription) VALUES (?, ?, ?, NOW())";
+	private static final String SQL_SELECT_PAR_EMAIL = "SELECT idUtilisateur, email, login, mdp, dateInscription, vRole FROM bdd_jee.Utilisateur u, bdd_jee.Role r WHERE email = ? and u.idRole = r.idRole";
+	private static final String SQL_INSERT = "INSERT INTO bdd_jee.Utilisateur (email, mdp, login, dateInscription) VALUES (?, ?, ?, NOW())";
 	
 	public Utilisateur trouver( String email ) throws DAOException {
 	    Connection connexion = null;
@@ -64,11 +64,12 @@ public class UtilisateurDaoImpl{
     
 	private static Utilisateur map( ResultSet resultSet ) throws SQLException {
 	    Utilisateur utilisateur = new Utilisateur();
-	    utilisateur.setId( resultSet.getLong( "id" ) );
+	    utilisateur.setId( resultSet.getLong( "idUtilisateur" ) );
 	    utilisateur.setEmail( resultSet.getString( "email" ) );
-	    utilisateur.setMotDePasse( resultSet.getString( "mot_de_passe" ) );
-	    utilisateur.setNom( resultSet.getString( "nom" ) );
-	    utilisateur.setDateInscription( resultSet.getTimestamp( "date_inscription" ) );
+	    utilisateur.setMotDePasse( resultSet.getString( "mdp" ) );
+	    utilisateur.setNom( resultSet.getString( "login" ) );
+	    utilisateur.setDateInscription( resultSet.getTimestamp( "dateInscription" ) );
+	    utilisateur.setRole( resultSet.getString( "vRole" ) );
 	    return utilisateur;
 	}
 }

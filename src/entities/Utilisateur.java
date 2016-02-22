@@ -9,6 +9,7 @@ public class Utilisateur {
     private String    motDePasse;
     private String    nom;
     private Timestamp dateInscription;
+    private String 	  role;
 
     public Long getId() {
         return id;
@@ -43,5 +44,12 @@ public class Utilisateur {
     }
     public void setDateInscription( Timestamp dateInscription ) {
         this.dateInscription = dateInscription;
+    }
+    
+    public String getRole() {
+        return role;
+    }
+    public void setRole( String role ) {
+        this.role = role;
     }
 }
