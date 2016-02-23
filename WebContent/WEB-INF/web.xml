@@ -3,6 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
+
 	<display-name>JEE</display-name>
 	<servlet>
 		<servlet-name>Inscription</servlet-name>
@@ -12,6 +13,7 @@
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/inscription</url-pattern>
 	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>Connexion</servlet-name>
 		<servlet-class>servlets.Connexion</servlet-class>
@@ -20,6 +22,7 @@
 		<servlet-name>Connexion</servlet-name>
 		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>Deconnexion</servlet-name>
 		<servlet-class>servlets.Deconnexion</servlet-class>
@@ -28,6 +31,7 @@
 		<servlet-name>Deconnexion</servlet-name>
 		<url-pattern>/deconnexion</url-pattern>
 	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>Admin</servlet-name>
 		<servlet-class>servlets.Admin</servlet-class>
@@ -36,4 +40,14 @@
 		<servlet-name>Admin</servlet-name>
 		<url-pattern>/admin</url-pattern>
 	</servlet-mapping>
+
+	<filter>
+		<filter-name>RestrictionFilter</filter-name>
+		<filter-class>filters.RestrictionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>RestrictionFilter</filter-name>
+		<url-pattern>/accesAdmin/*</url-pattern>
+	</filter-mapping>
+
 </web-app>
