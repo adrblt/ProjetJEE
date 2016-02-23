@@ -15,8 +15,9 @@ import javax.servlet.http.HttpSession;
 import entities.Utilisateur;
 
 public class RestrictionFilter implements Filter {
-    public static final String ACCES_ERROR     = "/connexion";
-	public static final String ATT_SESSION_USER = "sessionUtilisateur";
+    public static final String ACCES_CONNEXION     = "/connexion";
+    public static final String ACCES_ERROR     = "/errorAccess";
+    public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
 	@Override
 	public void destroy() {
@@ -40,7 +41,7 @@ public class RestrictionFilter implements Filter {
 	            response.sendRedirect( request.getContextPath() + ACCES_ERROR );
         }
         else
-            response.sendRedirect( request.getContextPath() + ACCES_ERROR );
+            response.sendRedirect( request.getContextPath() + ACCES_CONNEXION );
 
 	}
 

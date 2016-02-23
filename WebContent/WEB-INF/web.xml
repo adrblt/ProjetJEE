@@ -31,6 +31,15 @@
 		<servlet-name>Deconnexion</servlet-name>
 		<url-pattern>/deconnexion</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ErrorAccess</servlet-name>
+		<servlet-class>servlets.ErrorAccess</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ErrorAccess</servlet-name>
+		<url-pattern>/errorAccess</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>Admin</servlet-name>
